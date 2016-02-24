@@ -2,12 +2,12 @@
   "posts": [
     {
       "title": "Post title",
-      "author": "test user",
+      "body": "body",
       "id": 1
     },
     {
       "title": "Post 2",
-      "author": "test user",
+      "body": "body",
       "id": 2
     }
   ],
@@ -18,18 +18,19 @@
       "id": 1
     },
     {
-      "body": "comment 2",
+      "body": "Other comment edited",
       "postId": 1,
       "id": 2
     },
     {
-      "body": "comment",
+      "body": "Hello !",
       "postId": 2,
       "id": 3
     }
   ],
   "users": {
     "id": 1,
-    "name": "sugarshin"
+    "name": "sugarshin",
+    "password": "password"
   }
 }

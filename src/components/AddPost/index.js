@@ -23,7 +23,7 @@ export default class AddPost extends Component {
   handleClickButton() {
     const value = this.refs.input.value.trim();
     if (value === '') return;
-    this.props.onClickPostButton(value);
+    this.props.onClickPostButton({ title: value, body: '' });
     this.refs.input.value = '';
   }
 }

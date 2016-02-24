@@ -8,6 +8,7 @@ export default class Post extends Component {
       id: PropTypes.number.isRequired,
       title: PropTypes.string.isRequired,
       comments: PropTypes.arrayOf(PropTypes.shape({
+        id: PropTypes.number.isRequired,
         body: PropTypes.string.isRequired
       })).isRequired,
       onClickAddCommentButton: PropTypes.func.isRequired,
@@ -23,8 +24,8 @@ export default class Post extends Component {
 
   render() {
     return (
-      <div>
-        <div>{this.props.title} <button onClick={this.handleClickDelete.bind(this)}>Delete</button></div>
+      <div style={{ marginBottom: '2rem' }}>
+        <div style={{ marginBottom: '1rem' }}>{this.props.title} <button onClick={this.handleClickDelete.bind(this)}>Delete</button></div>
         <AddComment postId={this.props.id} onClickCommentButton={this.props.onClickAddCommentButton} />
         <ul>{this.renderComments()}</ul>
       </div>
@@ -33,8 +34,13 @@ export default class Post extends Component {
 
   renderComments() {
     return this.props.comments.map(comment => (
-      comment.postId === this.props.id ?
-        <Comment key={comment.id} id={comment.id} body={comment.body} onClickDoneButton={this.props.onClickCommentEditButton} onClickDeleteButton={this.props.onClickCommentDeleteButton} /> : null
+      <Comment
+        key={comment.id}
+        id={comment.id}
+        body={comment.body}
+        onClickDoneButton={this.props.onClickCommentEditButton}
+        onClickDeleteButton={this.props.onClickCommentDeleteButton}
+      />
     ));
   }
 

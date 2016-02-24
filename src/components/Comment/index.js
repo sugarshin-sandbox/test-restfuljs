@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from 'react';
+import styles from './index.styl';
 
 export default class Comment extends Component {
   static get propTypes() {
@@ -18,16 +19,16 @@ export default class Comment extends Component {
   }
 
   render() {
+    const { editMode } = this.state;
+    const { body } = this.props;
     return (
-      <div>
-        <span style={{ display: this.state.editMode ? 'none' : 'inline' }}>{this.props.body}</span>
-        <input style={{ display: this.state.editMode ? 'inline' : 'none' }} type="text" defaultValue={this.props.body} ref="input" />
-        <button style={{ display: this.state.editMode ? 'none' : 'inline' }} onClick={this.handleClickEditButton.bind(this)}>edit</button>
-        <button style={{ display: this.state.editMode ? 'none' : 'inline' }} onClick={this.handleClickDeleteButton.bind(this)}>delete</button>
-        <div style={{ display: this.state.editMode ? 'inline' : 'none' }}>
-          <button onClick={this.handleClickDoneButton.bind(this)}>done</button>
-        </div>
-      </div>
+      <li>
+        <span className={editMode ? styles.hidden : ''}>{body}</span>
+        <input className={!editMode ? styles.hidden : ''} type="text" defaultValue={body} ref="input" />
+        <button className={editMode ? styles.hidden : ''} onClick={this.handleClickEditButton.bind(this)}>edit</button>
+        <button className={editMode ? styles.hidden : ''} onClick={this.handleClickDeleteButton.bind(this)}>delete</button>
+        <button className={!editMode ? styles.hidden : ''} onClick={this.handleClickDoneButton.bind(this)}>done</button>
+      </li>
     );
   }
 
@@ -36,8 +37,11 @@ export default class Comment extends Component {
   }
 
   handleClickDoneButton() {
+    const value = this.refs.input.value.trim();
+    if (this.props.body !== value) {
+      this.props.onClickDoneButton(this.props.id, value);
+    }
     this.setState({ editMode: false });
-    this.props.onClickDoneButton(this.props.id, this.refs.input.value);
   }
 
   handleClickDeleteButton() {

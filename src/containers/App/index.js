@@ -42,7 +42,7 @@ export default class App extends Component {
         key={post.id}
         id={post.id}
         title={post.title}
-        comments={this.state.comments}
+        comments={this.state.comments.filter(comment => comment.postId === post.id)}
         onClickCommentEditButton={this.updateComment.bind(this)}
         onClickAddCommentButton={this.addComment.bind(this)}
         onClickDeleteButton={this.deletePost.bind(this)}
@@ -53,8 +53,7 @@ export default class App extends Component {
 
   async addPost(payload) {
     const posts = await Posts.create({
-      title: payload,
-      author: 'test user'
+      ...payload
     });
     const statusCode = posts.statusCode();
     if (statusCode === 201) {

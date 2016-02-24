@@ -1,114 +1,35 @@
 {
   "posts": [
     {
-      "id": 1,
-      "title": "json-server 1",
-      "author": "typicode 1"
-    },
-    {
-      "id": 2,
-      "title": "json-server 2",
-      "author": "typicode 2"
-    },
-    {
-      "id": 3,
-      "title": "json-server 3",
-      "author": "typicode 3"
-    },
-    {
-      "id": 4,
-      "title": "json-server 4",
-      "author": "typicode 4"
-    },
-    {
-      "title": "test",
+      "title": "Post title",
       "author": "test user",
-      "id": 5
+      "id": 1
     },
     {
-      "title": "test2",
+      "title": "Post 2",
       "author": "test user",
-      "id": 6
-    },
-    {
-      "title": "test3",
-      "author": "test user",
-      "id": 7
-    },
-    {
-      "title": "test4",
-      "author": "test user",
-      "id": 8
-    },
-    {
-      "title": "test5",
-      "author": "test user",
-      "id": 9
-    },
-    {
-      "title": "test6",
-      "author": "test user",
-      "id": 10
-    },
-    {
-      "title": "test7",
-      "author": "test user",
-      "id": 11
-    },
-    {
-      "title": "test8",
-      "author": "test user",
-      "id": 12
-    },
-    {
-      "title": "test9",
-      "author": "test user",
-      "id": 13
-    },
-    {
-      "title": "trset111",
-      "author": "test user",
-      "id": 14
-    },
-    {
-      "title": "test12",
-      "author": "test user",
-      "id": 15
-    },
-    {
-      "title": "test13",
-      "author": "test user",
-      "id": 16
-    },
-    {
-      "title": "test",
-      "author": "test user",
-      "id": 17
-    },
-    {
-      "title": "test14",
-      "author": "test user",
-      "id": 18
+      "id": 2
     }
   ],
   "comments": [
     {
-      "id": 1,
-      "body": "some comment 1",
-      "postId": 1
+      "body": "some comment",
+      "postId": 1,
+      "id": 1
     },
     {
-      "id": 2,
-      "body": "some comment 2",
-      "postId": 3
+      "body": "comment 2",
+      "postId": 1,
+      "id": 2
     },
     {
-      "id": 3,
-      "body": "some comment 3",
-      "postId": 1
+      "body": "comment",
+      "postId": 2,
+      "id": 3
     }
   ],
-  "profile": {
-    "name": "typicode"
+  "users": {
+    "id": 1,
+    "name": "sugarshin"
   }
 }

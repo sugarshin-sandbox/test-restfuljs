@@ -1,14 +1,21 @@
 import path from 'path';
 import webpack from 'webpack';
+import dotenv from 'dotenv';
 
-const production = process.env.NODE_ENV === 'production';
+dotenv.config();
+
+const NODE_ENV = process.env.NODE_ENV;
+const production = NODE_ENV === 'production';
 const cssModules = 'modules&importLoaders=1&localIdentName=[path][name]__[local]___[hash:base64:8]';
 const cssLoader = production ? `css?minimize&${cssModules}` : `css?${cssModules}`;
 const buildDev = 'build-dev';
 const buildDir = production ? 'build' : buildDev;
 const plugins = [
   new webpack.DefinePlugin({
-    'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
+    'process.env': {
+      NODE_ENV: JSON.stringify(NODE_ENV),
+      API_BASE: JSON.stringify(process.env.API_BASE)
+    }
   })
 ];
 const entries = ['./src/index.js'];

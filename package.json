@@ -1,6 +1,7 @@
 {
   "name": "test-restfuljs",
   "description": "test-restfuljs",
+  "private": true,
   "scripts": {
     "start": "sh script/webpack-dev-server.sh",
     "server": "node server",

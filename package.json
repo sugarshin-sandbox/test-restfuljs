@@ -3,7 +3,8 @@
   "description": "test-restfuljs",
   "scripts": {
     "start": "sh script/webpack-dev-server.sh",
-    "api": "json-server -d 400 --watch db.json",
+    "server": "node server",
+    "api:mock": "json-server -d 400 --watch db.json",
     "clean:dev": "if [ -d build-dev ]; then rm -rf build-dev; fi",
     "clean:build": "if [ -d build ]; then rm -rf build; fi",
     "jade:build": "jade -o build src/template/index.jade",
@@ -22,6 +23,7 @@
     "babel-preset-stage-2": "^6.5.0",
     "css-loader": "^0.23.1",
     "css-mqpacker": "^4.0.0",
+    "dotenv": "^2.0.0",
     "eslint": "^1.10.3",
     "eslint-loader": "^1.3.0",
     "eslint-plugin-babel": "^3.1.0",

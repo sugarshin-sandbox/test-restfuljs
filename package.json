@@ -9,7 +9,8 @@
     "clean:build": "if [ -d build ]; then rm -rf build; fi",
     "jade:build": "jade -o build src/template/index.jade",
     "webpack": "webpack --config config/webpack.config.babel.js",
-    "build": "NODE_ENV=production sh script/build.sh"
+    "build": "NODE_ENV=production sh script/build.sh",
+    "postinstall": "npm run build"
   },
   "author": "sugarshin",
   "license": "MIT",
